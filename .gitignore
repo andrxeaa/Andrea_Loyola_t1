@@ -6,3 +6,5 @@ __pycache__/
 coverage.xml
 .sonarqube/
 .env
+
+.scannerwork/
