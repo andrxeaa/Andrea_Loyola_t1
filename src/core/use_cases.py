@@ -2,16 +2,19 @@ import math
 from typing import Protocol
 from src.core.entities import Transaction, RewardCalculation, CustomerAccount
 
+class PublishError(Exception):
+    """Exception for publisher failures."""
+
 class MessagePublisher(Protocol):
     def publish_transaction(self, transaction: Transaction) -> bool:
-        pass
+        """Publish transaction."""
 
 class CustomerRepository(Protocol):
     def get_account(self, card_number: str) -> CustomerAccount:
-        pass
+        """Get account."""
     
     def save_account(self, account: CustomerAccount) -> None:
-        pass
+        """Save account."""
 
 class RegisterDinnerUseCase:
     def __init__(self, publisher: MessagePublisher):
@@ -21,7 +24,7 @@ class RegisterDinnerUseCase:
         transaction = Transaction(**transaction_data)
         success = self.publisher.publish_transaction(transaction)
         if not success:
-            raise Exception("Failed to publish transaction to broker")
+            raise PublishError("Failed to publish transaction to broker")
         return transaction
 
 class CalculateRewardsUseCase:

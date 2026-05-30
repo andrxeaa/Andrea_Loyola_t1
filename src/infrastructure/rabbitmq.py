@@ -12,11 +12,11 @@ class RabbitMQClient:
         self.host = os.getenv("RABBITMQ_HOST", "localhost")
         self.port = int(os.getenv("RABBITMQ_PORT", 5672))
         self.user = os.getenv("RABBITMQ_USER", "guest")
-        self.password = os.getenv("RABBITMQ_PASSWORD", "guest")
+        self.rmq_pass = os.getenv("RABBITMQ_PASSWORD", "guest")
         self.queue_name = "dinner.transactions"
 
     def get_connection(self):
-        credentials = pika.PlainCredentials(self.user, self.password)
+        credentials = pika.PlainCredentials(self.user, self.rmq_pass)
         parameters = pika.ConnectionParameters(
             host=self.host, 
             port=self.port, 

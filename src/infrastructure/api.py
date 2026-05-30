@@ -13,7 +13,7 @@ class TransactionRequest(BaseModel):
     card_number: str
     restaurant_code: str
 
-@app.post("/transactions", status_code=201)
+@app.post("/transactions", status_code=201, responses={400: {"description": "Bad Request"}, 500: {"description": "Server Error"}})
 def register_transaction(request: TransactionRequest):
     try:
         transaction = use_case.execute(request.dict())
