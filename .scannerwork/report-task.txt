@@ -1,0 +1,6 @@
+projectKey=Andrea_Loyola_t1
+serverUrl=https://sonarqube.ingsoftware.lat
+serverVersion=26.5.0.122743
+dashboardUrl=https://sonarqube.ingsoftware.lat/dashboard?id=Andrea_Loyola_t1
+ceTaskId=fff01706-9fc0-4a5b-8f3e-bf7bda9f1d37
+ceTaskUrl=https://sonarqube.ingsoftware.lat/api/ce/task?id=fff01706-9fc0-4a5b-8f3e-bf7bda9f1d37
